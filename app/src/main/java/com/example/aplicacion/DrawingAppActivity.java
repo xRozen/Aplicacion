@@ -14,19 +14,19 @@ public class DrawingAppActivity extends AppCompatActivity {
 
     private DrawView drawView;
     private Button clearButton;
-    private Button btnBackToMain; // Nuevo botón para regresar
+    private Button btnBackToMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawing_app); // Establece el layout de la app de dibujo
+        setContentView(R.layout.activity_drawing_app);
 
         Spinner colorSpinner = findViewById(R.id.colorSpinner);
         drawView = findViewById(R.id.drawView);
         clearButton = findViewById(R.id.clearButton);
-        btnBackToMain = findViewById(R.id.btnBackToMainFromDrawing); // Encuentra el botón de regresar
+        btnBackToMain = findViewById(R.id.btnBackToMainFromDrawing);
 
-        String[] colors = {"Rojo", "Verde", "Azul", "Negro", "Amarillo"}; // Añadimos más colores
+        String[] colors = {"Rojo", "Verde", "Azul", "Negro", "Amarillo"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, colors);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -36,19 +36,19 @@ public class DrawingAppActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0: // Rojo
+                    case 0:
                         drawView.setPaintColor(Color.RED);
                         break;
-                    case 1: // Verde
+                    case 1:
                         drawView.setPaintColor(Color.GREEN);
                         break;
-                    case 2: // Azul
+                    case 2:
                         drawView.setPaintColor(Color.BLUE);
                         break;
-                    case 3: // Negro
+                    case 3:
                         drawView.setPaintColor(Color.BLACK);
                         break;
-                    case 4: // Amarillo
+                    case 4:
                         drawView.setPaintColor(Color.YELLOW);
                         break;
                 }
@@ -65,11 +65,10 @@ public class DrawingAppActivity extends AppCompatActivity {
             }
         });
 
-        // Configura el botón para regresar a la pantalla principal
         btnBackToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Cierra esta Activity y regresa a la anterior en la pila (MainActivity)
+                finish();
             }
         });
     }
